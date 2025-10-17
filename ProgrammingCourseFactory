@@ -1,0 +1,21 @@
+public class ProgrammingCourseFactory implements CourseFactory {
+    @Override
+    public Course createCourse() {
+        return new ProgrammingCourse(new ProgrammingCourseImplementation());
+    }
+
+    @Override
+    public CourseDecorator createCertificateDecorator(Course course) {
+        return new CertificateDecorator(course);
+    }
+
+    @Override
+    public CourseDecorator createMentorSupportDecorator(Course course) {
+        return new MentorSupportDecorator(course);
+    }
+
+    @Override
+    public CourseDecorator createGamificationDecorator(Course course) {
+        return new GamificationDecorator(course);
+    }
+}
