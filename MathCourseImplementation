@@ -1,0 +1,6 @@
+public class MathCourseImplementation implements CourseImplementation {
+    @Override
+    public void deliverContentImplementation() {
+        System.out.println("Delivering content for Math Course.");
+    }
+}
