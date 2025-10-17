@@ -1,0 +1,6 @@
+public interface CourseFactory {
+    Course createCourse();
+    CourseDecorator createCertificateDecorator(Course course);
+    CourseDecorator createMentorSupportDecorator(Course course);
+    CourseDecorator createGamificationDecorator(Course course);
+}
