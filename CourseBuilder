@@ -1,0 +1,30 @@
+public class CourseBuilder {
+    private Course course;
+
+    public CourseBuilder(String courseType, CourseImplementation implementation) {
+        if (courseType.equalsIgnoreCase("Math")) {
+            course = new MathCourse(implementation); 
+        } else if (courseType.equalsIgnoreCase("Programming")) {
+            course = new ProgrammingCourse(implementation);  
+        }
+    }
+
+    public CourseBuilder addCertificate() {
+        course = new CertificateDecorator(course);
+        return this;
+    }
+
+    public CourseBuilder addMentorSupport() {
+        course = new MentorSupportDecorator(course);
+        return this;
+    }
+
+    public CourseBuilder addGamification() {
+        course = new GamificationDecorator(course);
+        return this;
+    }
+
+    public Course build() {
+        return course;
+    }
+}
