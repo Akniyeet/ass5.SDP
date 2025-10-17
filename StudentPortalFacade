@@ -1,0 +1,14 @@
+public class StudentPortalFacade {
+    public void enrollInCourse(Course course) {
+        System.out.println("Enrolling in course...");
+        course.deliverContent();
+    }
+
+    public void startLearning(Course course) {
+        System.out.println("Starting the course...");
+    }
+
+    public void completeCourse(Course course) {
+        System.out.println("Completing the course...");
+    }
+}
