@@ -1,0 +1,13 @@
+ public class MathCourse implements Course {
+    private CourseImplementation implementation;
+
+    public MathCourse(CourseImplementation implementation) {
+        this.implementation = implementation;
+    }
+
+    @Override
+    public void deliverContent() {
+        System.out.println("Starting Math Course...");
+        implementation.deliverContentImplementation();
+    }
+}
