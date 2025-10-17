@@ -1,0 +1,41 @@
+public class Main {
+    public static void main(String[] args) {
+        CourseImplementation mathImplementation = new MathCourseImplementation();
+        CourseImplementation programmingImplementation = new ProgrammingCourseImplementation();
+        
+        System.out.println("Using Builder Pattern for Math Course:");
+        Course mathCourse = new CourseBuilder("Math", mathImplementation)
+                .addCertificate()      
+                .addMentorSupport()    
+                .build();
+
+        portalProcess(mathCourse);  
+        
+        System.out.println("\nUsing Abstract Factory Pattern for Math Course:");
+        CourseFactory mathFactory = new MathCourseFactory();
+        Course mathCourseWithFactory = mathFactory.createCourse();
+        mathCourseWithFactory = mathFactory.createCertificateDecorator(mathCourseWithFactory);
+        mathCourseWithFactory = mathFactory.createMentorSupportDecorator(mathCourseWithFactory);
+        portalProcess(mathCourseWithFactory);  
+        
+        System.out.println("\nUsing Bridge Pattern for Math Course:");
+        Course bridgeMathCourse = new MathCourse(mathImplementation);
+        bridgeMathCourse.deliverContent();  
+        
+        System.out.println("\nUsing Builder Pattern for Programming Course:");
+        Course programmingCourse = new CourseBuilder("Programming", programmingImplementation)
+                .addGamification()  
+                .build();
+        portalProcess(programmingCourse); 
+    }
+    
+    private static void portalProcess(Course course) {
+        StudentPortalFacade portal = new StudentPortalFacade();
+        
+        portal.enrollInCourse(course);
+        
+        portal.startLearning(course);
+        
+        portal.completeCourse(course);
+    }
+}
