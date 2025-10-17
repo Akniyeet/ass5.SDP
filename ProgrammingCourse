@@ -1,0 +1,13 @@
+public class ProgrammingCourse implements Course {
+    private CourseImplementation implementation;
+
+    public ProgrammingCourse(CourseImplementation implementation) {
+        this.implementation = implementation;
+    }
+
+    @Override
+    public void deliverContent() {
+        System.out.println("Starting Programming Course...");
+        implementation.deliverContentImplementation();
+    }
+}
